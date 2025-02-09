@@ -9,6 +9,7 @@ import ProtectedRoutes from './components/ProtectedRoutes'
 import Login from './components/Login'
 import InfiniteScroll from './components/InfiniteScroll'
 import axios from 'axios'
+import SearchWithDebounce from './components/SearchWithDebounce'
 //import LazyLoadTest from './components/LazyLoadTest'
 const LazyDyImp = lazy(()=>import('./components/LazyLoadTest'))
 
@@ -29,6 +30,7 @@ function App() {
 
     <Suspense fallback={<h1>fallback</h1>}>
     <Routes>
+      <Route path='/search' element={<SearchWithDebounce/>}/>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route element={<ProtectedRoutes/>}>
