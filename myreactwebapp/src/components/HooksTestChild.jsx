@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo,useState } from 'react'
 
-const HooksTestChild = ({counter,fnu}) => {
+const HooksTestChild = ({counter = 0,fnu=()=>null}) => {
  //  console.log('from child');
       
     const name = {

@@ -10,6 +10,7 @@ import Login from './components/Login'
 import InfiniteScroll from './components/InfiniteScroll'
 import axios from 'axios'
 import SearchWithDebounce from './components/SearchWithDebounce'
+import AdvTest from './components/AdvTest'
 //import LazyLoadTest from './components/LazyLoadTest'
 const LazyDyImp = lazy(()=>import('./components/LazyLoadTest'))
 
@@ -40,6 +41,7 @@ function App() {
       </Route>
       <Route path='*' element={<NotFound/>}/>
       <Route path='/infinite' element={<InfiniteScroll/>}/>
+      <Route path='/advanced' element={<AdvTest/>}/>
     </Routes>
    </Suspense>
    
