@@ -1,13 +1,15 @@
 import React from 'react'
 
-const Child = () =>{
+const Child = ({message='yo'}) =>{
     console.log('Child');
     const [count,setCount] = React.useState(0)
+    alert('rerender')
     return(
      <div>
         {count}
         <button onClick={()=>setCount(prev=>prev+1)}>inc child</button>
         hi from Child
+        <h1>{message}</h1>
      </div>
     )
 }
@@ -15,14 +17,15 @@ const Child = () =>{
 // this method stops the components passed in from being rerendered on every rerender
 const Parent = ({content}) =>{
     console.log('parent');
-     
+    
     const [count,setCount] = React.useState(0)
     return (
      
      <div>{count}
          <button onClick={()=>setCount(prev=>prev+1)}>inc</button>
        from parent
-         {content}
+       {content}
+         {/* {React.cloneElement(content,{message:'hiii'})} */}
      </div>
      
     )
