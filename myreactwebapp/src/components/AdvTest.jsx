@@ -3,7 +3,7 @@ import React from 'react'
 const Child = ({message='yo'}) =>{
     console.log('Child');
     const [count,setCount] = React.useState(0)
-    alert('rerender')
+  //  alert('rerender')
     return(
      <div>
         {count}

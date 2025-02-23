@@ -11,10 +11,34 @@ import InfiniteScroll from './components/InfiniteScroll'
 import axios from 'axios'
 import SearchWithDebounce from './components/SearchWithDebounce'
 import AdvTest from './components/AdvTest'
+import AxiosTest from './components/AxiosTest'
 //import LazyLoadTest from './components/LazyLoadTest'
 const LazyDyImp = lazy(()=>import('./components/LazyLoadTest'))
 
+
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
+
+
+// applies changes to response by default
+axios.defaults.transformResponse.concat(data=>{
+  data.title = data.title.toUpperCase()
+  return data 
+})
+
+// does thi whenever a request is made
+axios.interceptors.request.use(
+  
+  (config)=>{
+    //alert(`${config.method.toUpperCase()} sent to ${config.url}`);
+    console.log(config.headers);
+
+    return config // you must do this or the request wont send
+  },
+  (err)=>{
+    console.log(err);
+    
+  }
+)
 
 
 function App() {
@@ -42,6 +66,7 @@ function App() {
       <Route path='*' element={<NotFound/>}/>
       <Route path='/infinite' element={<InfiniteScroll/>}/>
       <Route path='/advanced' element={<AdvTest/>}/>
+      <Route path='/axios' element={<AxiosTest/>}/>
     </Routes>
    </Suspense>
    
