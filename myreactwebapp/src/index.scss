@@ -1,36 +1,40 @@
+@use "sass:map";
+@use './styles/utilities.scss';
+@use './styles//CssTest.scss';
 *{
-  // margin: 0;
-  // padding: 0;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
   line-height: 1.9rem ;
 }
 
-// body{
+// a mixin, used to create a block of reusable code
 
-
-
-// }
-
-.box-container{
-  background-color: rgb(136, 221, 224);
-  display: flex;
-  width: 75%;
-  margin: auto;
- 
-  height: 50vh;
-  align-items: center; /*    y-axis */
-  justify-content: start;/*    x-axis */
-  div{
-    background-color: steelblue;
-    flex: 1;
-    height: 100%;
-    text-align: center;
-    
-    
-  }
+@mixin div-styling($color){
+  background-color: $color;
+  font-size: 30px;
+  color: green;
 }
 
-.box-container > div:nth-child(odd){
-  background-color: slateblue;
+
+
+.css-body{
+  background-color: steelblue;
+  height: 50vh;
+  display: flex;
+  
+  
+  >.div-1{
+    @include div-styling(yellow);
+    flex: map.get(utilities.$flex-sizes,'large');
+  }
+  >.div-2{
+    @include div-styling(white);
+    flex: map.get(utilities.$flex-sizes,'small');
+  }
+  >.div-3{
+    @include div-styling(grey);
+    flex: map.get(utilities.$flex-sizes,'small');
+  }
   
 }

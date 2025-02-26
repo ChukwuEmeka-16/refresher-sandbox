@@ -12,6 +12,8 @@ import axios from 'axios'
 import SearchWithDebounce from './components/SearchWithDebounce'
 import AdvTest from './components/AdvTest'
 import AxiosTest from './components/AxiosTest'
+import ScssTest from './components/ScssTest'
+import CssTest from './components/CssTest'
 //import LazyLoadTest from './components/LazyLoadTest'
 const LazyDyImp = lazy(()=>import('./components/LazyLoadTest'))
 
@@ -25,7 +27,7 @@ axios.defaults.transformResponse.concat(data=>{
   return data 
 })
 
-// does thi whenever a request is made
+// does this whenever a request is made
 axios.interceptors.request.use(
   
   (config)=>{
@@ -67,6 +69,8 @@ function App() {
       <Route path='/infinite' element={<InfiniteScroll/>}/>
       <Route path='/advanced' element={<AdvTest/>}/>
       <Route path='/axios' element={<AxiosTest/>}/>
+      <Route path='/scss' element={<ScssTest/>}/>
+      <Route path='/css' element={<CssTest/>}/>
     </Routes>
    </Suspense>
    

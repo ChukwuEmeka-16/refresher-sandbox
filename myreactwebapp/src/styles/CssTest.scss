@@ -1,0 +1,36 @@
+.parent{
+    background-color: grey;
+    height: 100vh;
+
+
+    .flexitem{
+        display: flex;
+        height: 100%;
+       // flex-wrap: wrap;
+       
+        align-content: center;
+        align-items: center;
+     //  justify-content: space-around;
+        gap: 10px;
+
+
+
+        >div:nth-child(odd){
+            background-color: yellow;
+            flex-basis: 250px;
+            flex-shrink: 2;
+        }
+        >div:nth-child(even){
+            background-color: blue;
+            flex-basis: 250px;
+           flex-shrink: 0;
+          
+        }
+        >div:nth-child(3){
+            margin-left: auto;
+        }
+
+        
+    }
+}
+

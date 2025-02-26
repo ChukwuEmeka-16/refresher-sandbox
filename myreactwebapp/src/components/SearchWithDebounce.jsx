@@ -14,26 +14,26 @@ const SearchWithDebounce = () => {
   },[])
   
   //debounce
-  // useEffect(()=>{
-  //   let timeout = setTimeout(()=>{
-  //     searchTerm.length >0 && console.log(searchTerm);
+  useEffect(()=>{
+    let timeout = setTimeout(()=>{
+      searchTerm.length >0 && console.log(searchTerm);
       
-  //   },2000)
-  //   return ()=>{
-  //     clearTimeout(timeout)
-  //   }
-  // },[searchTerm])
+    },2000)
+    return ()=>{
+      clearTimeout(timeout)
+    }
+  },[searchTerm])
 
-useEffect(()=>{
+// useEffect(()=>{
 
-  let throttle = setInterval(()=>{
-    console.log(searchTerm);
+//   let throttle = setInterval(()=>{
+//     console.log(searchTerm);
     
-  },2000)
-  return()=>{
-    clearInterval(throttle)
-  }
-},[searchTerm])
+//   },2000)
+//   return()=>{
+//     clearInterval(throttle)
+//   }
+// },[searchTerm])
 
   return (
     <div>
