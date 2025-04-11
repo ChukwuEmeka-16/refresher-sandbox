@@ -14,11 +14,12 @@ import AdvTest from './components/AdvTest'
 import AxiosTest from './components/AxiosTest'
 import ScssTest from './components/ScssTest'
 import CssTest from './components/CssTest'
+import ApiTest from './components/ApiTest'
 //import LazyLoadTest from './components/LazyLoadTest'
 const LazyDyImp = lazy(()=>import('./components/LazyLoadTest'))
 
 
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
+//axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'
 
 
 // applies changes to response by default
@@ -59,9 +60,10 @@ function App() {
     <Routes>
       <Route path='/search' element={<SearchWithDebounce/>}/>
       <Route path='/' element={<Home/>}/>
+      <Route path='/apitest' element={<ApiTest/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/todos/:id' element={<Todos/>}/>
       <Route element={<ProtectedRoutes/>}>
-        <Route path='/todos/:id' element={<Todos/>}/>
         <Route path='/hooks' element={<HooksTest/>}/>
         <Route path='/lazy' element={<LazyDyImp/>}/>
       </Route>

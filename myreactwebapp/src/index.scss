@@ -38,3 +38,21 @@
   }
   
 }
+
+
+
+.api{
+  height: 100vh;
+  background-color: gray;
+
+  input{
+    field-sizing: content;
+   // width: 150px;
+  }
+  textarea{
+   field-sizing: content;
+    max-width: 100px;
+   
+    resize: none;
+  }
+}
