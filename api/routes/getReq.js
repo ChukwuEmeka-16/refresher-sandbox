@@ -4,10 +4,31 @@ const e = require('express')
 const router = e.Router()
 
 router.get('/test',(req,res)=>{
-   
-
-    console.log(req.headers)
-    console.log(req.body);
+    //console.log(req.session);
+    // console.log(req.session.id);
+    // req.sessionStore.get(req.session.id,(err,sessionData)=>{
+    //     if(err) throw err
+    //     console.log(sessionData.visited);
+        
+    // })
+    // console.log(req.headers)
+    // console.log(req.body);
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    console.log('///');
+    
+    console.log('in get req');
+    console.log(req.isAuthenticated());
+    console.log(req.session);
+    
+    console.log(req.user);
+    
     res.status(200).send({success:true})
     
 })
@@ -48,6 +69,19 @@ router.get('/cookie',(req,res)=>{
     console.log(req.signedCookies.daun);
     
     res.status(200).send({success:true,token:req.cookies})
+})
+
+router.get('/logout',(req,res,next)=>{
+    console.log('in logout');
+    console.log(req.session);
+    
+    req.logOut((err)=>{
+
+        if (err) {
+            next(err)
+        }
+        res.status(200).send({msg:'logged out successfully'})
+    })
 })
 
 
